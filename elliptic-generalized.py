@@ -27,16 +27,16 @@ class GeneralizedEllipticCurve(object):
 
 
 class Point(object):
-    def __init__ (self, curve, x, y):
+   def __init__ (self, curve, x, y):
         self.curve = curve # the curve containing this point
         self.x = x
         self.y = y
 
    def __str__(self):
-      return "(%r, %r)" % (self.x, self.y)
-
+        return "(%r, %r)" % (self.x, self.y)
+  
    def __repr__(self):
-      return str(self)
+        return str(self)
 
 
    def __neg__(self):
@@ -139,7 +139,7 @@ class Ideal(Point):
       return Q
 
    def __mul__(self, n):
-      if not isinstance(n, int):
+      if not (isinstance(n, int) or not isinstance(n, long)):
          raise Exception("Can't scale a point by something which isn't an int!")
       else:
          return self
